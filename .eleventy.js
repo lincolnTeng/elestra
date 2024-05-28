@@ -56,6 +56,23 @@ module.exports = function(eleventyConfig) {
       zone: 'utc'
     }).toFormat('yyyy-LL-dd');
   });
+
+  //for seedfeed ... add videoInfo data source
+  	// add videosInfo data for global  
+	const fetch = require("node-fetch");
+	
+   eleventyConfig.addGlobalData("videoInfo", async () => {
+    const workerURL = "https://videokv.fordenzag.workers.dev/all";
+    const response = await fetch(workerURL);
+    const data = await response.json();
+    return data;
+  });
+
+
+
+
+
+  
   return {
     dir: {
       input: "src",
