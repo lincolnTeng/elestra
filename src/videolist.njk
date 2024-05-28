@@ -1,0 +1,20 @@
+---
+layout: layouts/default.njk
+title: video info list page
+permalink: /videolist/
+eleventyNavigation:
+  key: Videolist
+  order: 3
+---
+
+       <ul>
+        {% for video in videoInfo %}
+          <li>
+            <h3>{{ video.title }}</h3>
+            <p>{{ video.desc }}</p>
+            <p><img src={{ video.img }} > </p> </li>
+	{% set vUrl %}/videoitem/{{ video.videoid | slugify }}/{% endset %}
+	<li><a href="{{ vUrl }}" class="post-tag">src of {{ video.title }}</a></li>
+			 
+        {% endfor %}
+      </ul>
