@@ -68,7 +68,16 @@ module.exports = function(eleventyConfig) {
     return data;
   });
 
+  // add vtimeMap    for daily index 
+   eleventyConfig.addGlobalData("vMap", async () => {
 
+		    const workerURL = "https://videokv.fordenzag.workers.dev/getvmap/";
+		    const response = await fetch(workerURL);
+		    const data = await response.json();
+		  
+					return  data ;
+	 }); 
+ 
 
 
 
