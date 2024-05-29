@@ -9,8 +9,8 @@
           <p>Published
             <time datetime="{{ videoitem.kvtime | htmlDateString }}">{{videoitem.kvtime | readableDate }}</time>
           </p>
-          {%- for tag in tags | filterTagList -%}
-            {%- set tagUrl %}/videoitem.tags/{{ tag | slug }}/{% endset -%}
+          {%- for tag in videoitem.tags | filterTagList -%}
+            {%- set tagUrl %}/taglist/{{ tag | slug }}/{% endset -%}
             <a href="{{ tagUrl | url }}" class="btn btn-outline-dark btn-sm me-2">{{ tag }}</a>
           {%- endfor %}
             
